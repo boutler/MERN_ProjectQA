@@ -1,5 +1,10 @@
-const html = () => {
-  <p>Soy una etiqueta P de la pagina Home</p>;
-};
+// Dependencies
+import React from "react";
 
-export default html;
+class Home extends React.Component {
+  Render() {
+    return <p>Soy una etiqueta P de la pagina Home</p>;
+  }
+}
+
+export default Home;

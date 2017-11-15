@@ -1,10 +1,9 @@
 // Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 
 //Components import
-import Menu from "./menu";
+import content from "./content";
 // import Footer from "./footer";
 
 class Main_app extends React.Component {
@@ -16,9 +15,14 @@ class Main_app extends React.Component {
   }
 
   render() {
+    const { children } = this.props;
+
     return (
       <div className="generalWrapper">
-        <p>Soy un para</p>
+        <header>
+          <p>Soy un Header</p>
+        </header>
+        <content body={children} />
       </div>
     );
   }
