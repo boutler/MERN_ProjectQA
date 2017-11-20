@@ -1,0 +1,2 @@
+#Not include the node_modules folder to the git repository
+node_modules/
