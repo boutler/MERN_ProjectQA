@@ -1,0 +1,49 @@
+$backgroundColor: rgba(61, 60, 60, 0.91);
+
+#wrapperMenu {
+  width: 100%;
+  display: block;
+  background-color: $backgroundColor;
+  border: 1px solid black;
+
+  > ul {
+    list-style: none;
+    // display: block;
+    margin: 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+
+    > li {
+      // display: inline-block;
+      // margin: 0 auto;
+      flex: 10%;
+
+      > a {
+        padding: 15px;
+        display: block;
+        color: white;
+        text-decoration: none;
+      }
+
+      > a:not(.active):hover {
+        background-color: whitesmoke;
+        color: black;
+      }
+
+      > a.active {
+        background-color: greenyellow;
+        color: purple;
+      }
+
+      > a.active:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

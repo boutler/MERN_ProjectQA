@@ -1,0 +1,27 @@
+/* HEADER COMPONENT CSS FILE */
+
+#headerWrapper {
+  width: 100%;
+  display: block;
+  background-color: rgba(61, 60, 60, 0.91);
+  padding: 20px 0;
+}
+
+/* TITLE */
+#headerWrapper .titleHeader {
+  color: #ffffff;
+  padding: 10px 0 0 0;
+  margin: 0px;
+  text-align: center;
+}
+
+#headerWrapper .logoHeader {
+  display: block;
+  margin: 0 auto;
+}
+
+/* LOGO */
+#headerWrapper > .logoHeader {
+  width: 50px;
+  height: 50px;
+}
