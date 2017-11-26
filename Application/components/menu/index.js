@@ -43,7 +43,7 @@ class Menu extends React.Component {
     return (
       <nav
         id="wrapperMenu"
-        className="navbar navbar-expand-sm navbar-dark bg-dark"
+        className="navbar navbar-expand-sm"
         role="navigation"
       >
         <div
@@ -54,10 +54,10 @@ class Menu extends React.Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <div class="container">
-            <div class="row align-items-center">
+          <div className="container">
+            <div className="row align-items-center">
               <div className="text col-10">MENU</div>
-              <span class="col-2 mr-auto navbar-toggler-icon" />
+              <span className="col-2 mr-auto navbar-toggler-icon" />
             </div>
           </div>
         </div>

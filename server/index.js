@@ -31,7 +31,13 @@ if (isDevEnv) {
 } else {
 }
 
-app.use("*", (req, res) => {
+app.use("/appQa", (req, res) => {
+  console.log("appQa");
+  res.sendFile(path.join(__dirname, "../Application/public/App/qa/index.html"));
+});
+
+app.use("/", (req, res) => {
+  console.log("********");
   res.sendFile(
     path.join(__dirname, "../Application/public/App/web/index.html")
   );

@@ -6,14 +6,18 @@ import { Link } from "react-router-dom";
 // CSS import
 import "./index.scss";
 
-class Menu extends React.Component {
+class Toolbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.menuItems = {
-      home: { name: "Home", url: "/" },
-      user: { name: "My Account", url: "/user" },
-      contact: { name: "Contact", url: "/contact" }
+      goApp: { name: "Panel de control", url: "/appQa" },
+      login_register: {
+        name: "Login / Registro ",
+        url: "/login_register",
+        subMenu: { type: "component", value: "LoginRegister" }
+      },
+      help: { name: "Ayuda", url: "/help" }
     };
 
     let pathName = document.location.pathname;
@@ -41,52 +45,65 @@ class Menu extends React.Component {
     const menuItems = this.menuItems;
 
     return (
-      <nav
-        id="wrapperMenu"
-        className="navbar navbar-expand-sm navbar-dark bg-dark"
-        role="navigation"
-      >
-        <div
-          className="navbar-toggler col-12"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <div class="container">
-            <div class="row align-items-center">
-              <div className="text col-10">MENU</div>
-              <span class="col-2 mr-auto navbar-toggler-icon" />
-            </div>
-          </div>
-        </div>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="col-12 navbar-nav nav-pills nav-justified">
-            {menuItems &&
-              Object.keys(menuItems).map((value, index) => {
-                return (
-                  <li className="nav-item itemList" key={index}>
-                    <Link
-                      onClick={() => {
-                        this.changeActiveState(index);
-                      }}
-                      className={
-                        "nav-link " +
-                        (this.state.itemState[index] ? "active" : "")
-                      }
-                      to={menuItems[value].url}
+      <nav id="wrapperToolbar" className="nav">
+        <ul className="nav col-sm-12 nav-pills justify-content-end">
+          {menuItems &&
+            Object.keys(menuItems).map((value, index) => {
+              let hasSubmenu = menuItems[value].subMenu != undefined;
+              return (
+                <li
+                  className={"nav-item " + (hasSubmenu ? "dropdown " : "")}
+                  key={index}
+                >
+                  <Link
+                    onClick={() => {
+                      this.changeActiveState(index);
+                    }}
+                    className={
+                      "nav-link " +
+                      (this.state.itemState[index] ? "active " : "") +
+                      (hasSubmenu
+                        ? "dropdown-toggle dropdown-toggle-split "
+                        : "")
+                    }
+                    to={menuItems[value].url}
+                    data-toggle={hasSubmenu ? "dropdown" : ""}
+                    aria-haspopup={hasSubmenu ? "true" : ""}
+                    aria-expanded={hasSubmenu ? "false" : ""}
+                  >
+                    {menuItems[value].name}
+                  </Link>
+
+                  {hasSubmenu ? (
+                    <div
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuLink"
                     >
-                      {menuItems[value].name}
-                    </Link>
-                  </li>
-                );
-              })}
-          </ul>
-        </div>
+                      {menuItems[value].subMenu["type"] === "component"
+                        ? '<${menuItems[value].subMenu["value"]}/>'
+                        : ""}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </li>
+              );
+            })}
+          <li className="nav-item ">
+            <a
+              className="nav-link "
+              data-toggle=""
+              aria-haspopup=""
+              aria-expanded=""
+              href="appQa"
+            >
+              Panel de control
+            </a>
+          </li>
+        </ul>
       </nav>
     );
   }
 }
 
-export default Menu;
+export default Toolbar;

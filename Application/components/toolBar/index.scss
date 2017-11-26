@@ -1,42 +1,8 @@
-// $backgroundColor: rgba(61, 60, 60, 0.91);
+$backgroundColorDark: rgba(61, 60, 60, 0.91);
+$backgroundColorLight: rgb(248, 246, 246);
+$texColorBlack: #535353;
+$texColorWhite: #d3d3d3;
 
-// #wrapperMenu {
-//   width: 100%;
-//   display: block;
-//   background-color: $backgroundColor;
-//   border: 1px solid black;
-
-ul {
-  // list-style: none;
-  // display: block;
-  // margin: 0;
-  // padding: 0;
-  // text-align: center;
+#wrapperToolbar {
+  background: $backgroundColorLight;
 }
-//     > li {
-//       display: inline-block;
-//       margin: 0 auto;
-
-//       > a {
-//         padding: 15px;
-//         display: block;
-//         color: white;
-//         text-decoration: none;
-//       }
-
-//       > a:not(.active):hover {
-//         background-color: whitesmoke;
-//         color: black;
-//       }
-
-//       > a.active {
-//         background-color: greenyellow;
-//         color: purple;
-//       }
-
-//       > a.active:hover {
-//         opacity: 0.8;
-//       }
-//     }
-//   }
-// }
