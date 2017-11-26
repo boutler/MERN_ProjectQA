@@ -32,12 +32,12 @@ const getOutput = () => ({
 
 const getPlugins = () => {
   let plugins = [
-    // new webpack.ProvidePlugin({
-    //   $: "jquery",
-    //   jQuery: "jquery",
-    //   "window.jQuery": "jquery",
-    //   Popper: ["popper.js", "default"]
-    // })
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      Popper: ["popper.js", "default"]
+    })
     // new ExtractTextPlugin("[name].css")
     // new chunksPlugin({ to: "vendor", test: /node_modules/ })
   ];
@@ -74,14 +74,19 @@ const getModule = () => ({
     },
     {
       test: /\.scss$/,
-      loaders: ["style-loader", "css-loader", {
-        loader: "postcss-loader",
-        options: { plugins: function () {
-        return [
-          require('precss'),
-          require('autoprefixer')
-        ];
-      }}}, "sass-loader"]
+      loaders: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: "postcss-loader",
+          options: {
+            plugins: function() {
+              return [require("precss"), require("autoprefixer")];
+            }
+          }
+        },
+        "sass-loader"
+      ]
     },
     {
       test: /\.css$/,

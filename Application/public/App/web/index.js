@@ -9,7 +9,7 @@ import AppRouter from "./router";
 // CSS Dependencies
 import "./index.scss";
 // import "../../src/css/bootstrap.css";
-// import "bootstrap";
+import "bootstrap";
 
 ReactDOM.render(
   <Router>
